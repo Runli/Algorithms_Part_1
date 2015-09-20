@@ -12,6 +12,9 @@ package Weak_1;
  *
  ******************************************************************************/
 
+import StdLib.StdIn;
+import StdLib.StdOut;
+
 /**
  *  The <tt>WeightedQuickUnionUF</tt> class represents a <em>union-find data type</em>
  *  (also known as the <em>disjoint-sets data type</em>).
@@ -171,10 +174,10 @@ public class WeightedQuickUnionUF {
             size[rootP] += size[rootQ];
         }
         count--;
-        for (int i = 0; i < parent.length; i++) {
-            System.out.print(parent[i] + " " );
-        }
-        System.out.println();
+//        for (int i = 0; i < parent.length; i++) {
+//            System.out.print(parent[i] + " " );
+//        }
+//        System.out.println();
     }
 
 

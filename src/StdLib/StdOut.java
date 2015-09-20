@@ -1,4 +1,4 @@
-package Weak_1;
+package StdLib;
 
 /**
  * Created by ilnurgazizov on 19.09.15.

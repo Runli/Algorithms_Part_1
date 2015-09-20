@@ -12,6 +12,9 @@ package Weak_1;
  *
  ******************************************************************************/
 
+import StdLib.StdIn;
+import StdLib.StdOut;
+
 /**
  *  The <tt>QuickUnionUF</tt> class represents a <em>union-find data type</em>
  *  (also known as the <em>disjoint-sets data type</em>).

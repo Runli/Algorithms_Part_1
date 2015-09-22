@@ -1,8 +1,32 @@
 package Weak_1;
 
-/**
+/******************************************************************************
  * Created by ilnurgazizov on 19.09.15.
- */
+ * <p/>
+ * Compilation:  javac WeightedQuickUnionUF.java
+ * Execution:  java WeightedQuickUnionUF < input.txt
+ * Dependencies: StdIn.java StdOut.java
+ * <p/>
+ * Weighted quick-union (without path compression).
+ * <p/>
+ * Compilation:  javac WeightedQuickUnionUF.java
+ * Execution:  java WeightedQuickUnionUF < input.txt
+ * Dependencies: StdIn.java StdOut.java
+ * <p/>
+ * Weighted quick-union (without path compression).
+ * <p/>
+ * Compilation:  javac WeightedQuickUnionUF.java
+ * Execution:  java WeightedQuickUnionUF < input.txt
+ * Dependencies: StdIn.java StdOut.java
+ * <p/>
+ * Weighted quick-union (without path compression).
+ * <p/>
+ * Compilation:  javac WeightedQuickUnionUF.java
+ * Execution:  java WeightedQuickUnionUF < input.txt
+ * Dependencies: StdIn.java StdOut.java
+ * <p/>
+ * Weighted quick-union (without path compression).
+ ******************************************************************************/
 /******************************************************************************
  *  Compilation:  javac WeightedQuickUnionUF.java
  *  Execution:  java WeightedQuickUnionUF < input.txt
@@ -132,7 +156,7 @@ public class WeightedQuickUnionUF {
     private void validate(int p) {
         int N = parent.length;
         if (p < 0 || p >= N) {
-            throw new IndexOutOfBoundsException("index " + p + " is not between 0 and " + (N-1));
+            throw new IndexOutOfBoundsException("index " + p + " is not between 0 and " + (N - 1));
         }
     }
 
@@ -168,8 +192,7 @@ public class WeightedQuickUnionUF {
         if (size[rootP] < size[rootQ]) {
             parent[rootP] = rootQ;
             size[rootQ] += size[rootP];
-        }
-        else {
+        } else {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
         }

@@ -1,25 +1,20 @@
 package ProgrammingAssignments.Persolation;
 
-import StdLib.StdOut;
 import StdLib.StdRandom;
 import StdLib.StdStats;
 
 /**
  * Created by ilnurgazizov on 20.09.15.
- *
+ * <p/>
  * Full description of PA-1 Percolation in web site
  * Полное описание PA-1 Percolation на сайте
- *
+ * <p/>
  * http://coursera.cs.princeton.edu/algs4/assignments/percolation.html
- *
+ * <p/>
  * PercolationStats takes the grid size and the number of experiments and
  * determines what proportion of the cells must be open in order for the system to percolate.
- *
  */
 public class PercolationStats {
-    // Длина сетки N
-    private int N;
-
     // The number of experiments to perform
     // Число экспериментов
     private int T;
@@ -65,17 +60,17 @@ public class PercolationStats {
     }
 
     // Выполняет эксперимент по открытию клеток до момента перколации, добавляя долю в results
-    public double performT(int N){
+    private double performT(int N) {
 
         Percolation percolation = new Percolation(N);
         int sitesOpened = 0;
 
-        while (!percolation.percolates()){
-            while(true){
+        while (!percolation.percolates()) {
+            while (true) {
                 int i = StdRandom.uniform(1, N + 1);
                 int j = StdRandom.uniform(1, N + 1);
 
-                if (!percolation.isOpen(i, j)){
+                if (!percolation.isOpen(i, j)) {
                     percolation.open(i, j);
                     sitesOpened++;
 
@@ -83,7 +78,7 @@ public class PercolationStats {
                 }
             }
         }
-        double result = (double) sitesOpened / (double)(N * N);
+        double result = (double) sitesOpened / (double) (N * N);
 
         return result;
     }
@@ -94,9 +89,9 @@ public class PercolationStats {
 
         PercolationStats stats = new PercolationStats(gridSize, T);
 
-        StdOut.println("mean                    = " + stats.mean());
-        StdOut.println("stddev                  = " + stats.stddev());
-        StdOut.println("95% confidence interval = " + stats.confidenceLo() + ", " + stats.confidenceHi());
+        System.out.println("mean                    = " + stats.mean());
+        System.out.println("stddev                  = " + stats.stddev());
+        System.out.println("95% confidence interval = " + stats.confidenceLo() + ", " + stats.confidenceHi());
     }
 
 }

@@ -1,14 +1,15 @@
 package ProgrammingAssignments.Persolation;
+
 import Weak_1.WeightedQuickUnionUF;
 
 /**
  * Created by ilnurgazizov on 20.09.15.
- *
+ * <p/>
  * Full description of PA-1 Percolation in web site
  * Полное описание PA-1 Percolation на сайте
- *
+ * <p/>
  * http://coursera.cs.princeton.edu/algs4/assignments/percolation.html
- *
+ * <p/>
  * Percolation class represent a N*N grid of cells that can be in two state: open or closed
  */
 public class Percolation {
@@ -30,7 +31,9 @@ public class Percolation {
 
     // Конструктор, может выдать Исключение при N <= 0
     public Percolation(int N) {               // create N-by-N grid, with all sites blocked
-        if (N <= 0){ throw new IllegalArgumentException("Trying to create grid with negative or zero amounts of cells!");}
+        if (N <= 0) {
+            throw new IllegalArgumentException("Trying to create grid with negative or zero amounts of cells!");
+        }
         this.N = N;
         this.virtualTopCell = 0;
         this.virtualBottomCell = N * N + 1;
@@ -52,32 +55,32 @@ public class Percolation {
         openCells[index] = true;
 
         // проверяем клетку сверху и объединяем если открыта
-        if (j == 1){
+        if (j == 1) {
             unionAlgo.union(index, virtualTopCell);
         } else {
-            if (openCells[index - N]){
+            if (openCells[index - N]) {
                 unionAlgo.union(index, index - N);
             }
         }
 
         // проверяем клетку снизу и объединяем если открыта
-        if (j == N){
+        if (j == N) {
             unionAlgo.union(index, virtualBottomCell);
         } else {
-            if (openCells[index + N]){
+            if (openCells[index + N]) {
                 unionAlgo.union(index, index + N);
             }
         }
 
         // проверяем клетку слева и объединяем если открыта
-        if (i > 1){
+        if (i > 1) {
             if (openCells[index - 1]) {
                 unionAlgo.union(index, index - 1);
             }
         }
 
         // проверяем клетку справа и объединяем если открыта
-        if (i < N){
+        if (i < N) {
             if (openCells[index + 1]) {
                 unionAlgo.union(index, index + 1);
             }
@@ -102,12 +105,14 @@ public class Percolation {
     }
 
     // Проверка что (i, j) внутри сетки
-    private void checkIndex(int i, int j){
-        if (i <= 0 || j <= 0 || i > N || j > N){ throw new IndexOutOfBoundsException("A cell out of the grid");}
+    private void checkIndex(int i, int j) {
+        if (i <= 0 || j <= 0 || i > N || j > N) {
+            throw new IndexOutOfBoundsException("A cell out of the grid");
+        }
     }
 
     // Конвертация 2D координаты (i, j) в 1-мерный
-    private int getIndexFromCoords(int i, int j){
+    private int getIndexFromCoords(int i, int j) {
         checkIndex(i, j);
         return (j - 1) * N + i;
     }
